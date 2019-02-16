@@ -37,7 +37,7 @@ class CaptchaInput extends Input {
         $result .= ' name="'.$this->form->getName().'['.$this->getName().']"';
         $result .= ' value=""';
         $result .= $this->getClassHtml();
-        $result .= '><img src="'.route_url('captcha', ['time' => time()]).'" title="'.$this->data->getCode().'">';
+        $result .= '><img src="'.route_url('captcha', ['time' => time()]).'">';
         return $result;
     }
 
