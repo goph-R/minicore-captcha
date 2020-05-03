@@ -5,8 +5,9 @@ class CaptchaValidator extends Validator {
     /** @var UserSession */
     private $userSession;
 
-    public function __construct(Framework $framework) {
-        parent::__construct($framework);
+    public function __construct() {
+        parent::__construct();
+        $framework = Framework::instance();
         $this->userSession = $framework->get('userSession');
         $this->message = "Didn't match";
     }

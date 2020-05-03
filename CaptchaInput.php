@@ -8,8 +8,9 @@ class CaptchaInput extends Input {
     /** @var CaptchaData */
     private $data;
 
-    public function __construct(Framework $framework, $name, $defaultValue = '') {
-        parent::__construct($framework, $name, $defaultValue);
+    public function __construct($name, $defaultValue = '') {
+        parent::__construct($name, $defaultValue);
+        $framework = Framework::instance();
         $this->userSession = $framework->get('userSession');
         $this->data = new CaptchaData();
         $code = $this->generateRandomString(5);

@@ -4,8 +4,8 @@ class CaptchaModule extends Module {
 
     protected $id = 'minicore-captcha';
 
-    public function __construct(Framework $framework) {
-        parent::__construct($framework);
+    public function __construct() {
+        $framework = Framework::instance();
         $framework->add([
             'captchaController' => 'CaptchaController'
         ]);
@@ -13,7 +13,8 @@ class CaptchaModule extends Module {
 
     public function init() {
         /** @var Router $router */
-        $router = $this->framework->get('router');
+        $framework = Framework::instance();
+        $router = $framework->get('router');
         $router->add([
             ['captcha', 'captchaController', 'image']
         ]);
